@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .slide-container {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #121212;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .android-green {
+            color: #3DDC84;
+        }
+
+        .kotlin-purple {
+            color: #7F52FF;
+        }
+
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .content-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .content-icon {
+            margin-right: 15px;
+            color: #3DDC84;
+        }
+
+        .logo-container {
+            max-width: 400px;
+            max-height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-button {
+            position: absolute;
+            bottom: 20px;
+            padding: 10px 20px;
+            background-color: #7F52FF;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #6642E0;
+        }
+
+        .prev-button {
+            left: 20px;
+        }
+
+        .next-button {
+            right: 20px;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+<div class="slide-container flex flex-col p-10">
+    <div class="flex items-center mb-8">
+        <h1 class="title flex-grow"><span class="android-green">📌</span> O que é o <span class="kotlin-purple">Jetpack Compose</span>?
+        </h1>
+    </div>
+
+    <div class="flex flex-row">
+        <div class="w-1/2 pr-8">
+            <div class="content-item">
+                <i class="fas fa-check-circle content-icon"></i>
+                <p class="text-xl">Framework moderno para construção de UI nativa no Android</p>
+            </div>
+
+            <div class="content-item">
+                <i class="fas fa-check-circle content-icon"></i>
+                <p class="text-xl">Declarativo e reativo (sem XML)</p>
+            </div>
+
+            <div class="content-item">
+                <i class="fas fa-check-circle content-icon"></i>
+                <p class="text-xl">Inspirado em frameworks como React e SwiftUI</p>
+            </div>
+
+            <div class="content-item">
+                <i class="fas fa-check-circle content-icon"></i>
+                <p class="text-xl">Parte oficial do Jetpack (mantido pelo Google)</p>
+            </div>
+
+            <div class="content-item">
+                <i class="fas fa-calendar-check content-icon"></i>
+                <p class="text-xl">Lançado em versão estável em 2021</p>
+            </div>
+        </div>
+
+        <div class="w-1/2 flex justify-center items-center">
+            <div class="logo-container">
+                <img src="./images/jetpack_compose_logo.png" alt="Jetpack Compose Logo" class="logo-icssmage">
+            </div>
+        </div>
+    </div>
+</div>
+<a href="cover_slide.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
+<a href="slide_02.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
+</body>
+</html>
+

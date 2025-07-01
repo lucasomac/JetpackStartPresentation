@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .slide-container {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #121212;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .android-green {
+            color: #3DDC84;
+        }
+
+        .kotlin-purple {
+            color: #7F52FF;
+        }
+
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .conclusion-box {
+            background-color: rgba(127, 82, 255, 0.1);
+            border-left: 6px solid #7F52FF;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .tip-icon {
+            margin-right: 15px;
+            color: #3DDC84;
+            font-size: 24px;
+        }
+
+        .image-container {
+            max-width: 450px;
+            max-height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-button {
+            position: absolute;
+            bottom: 20px;
+            padding: 10px 20px;
+            background-color: #7F52FF;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #6642E0;
+        }
+
+        .prev-button {
+            left: 20px;
+        }
+
+        .next-button {
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container flex flex-col p-10">
+        <div class="flex items-center mb-6">
+            <h1 class="title flex-grow"><span class="android-green">🙌</span> Considerações <span
+                    class="kotlin-purple">Finais</span>
+            </h1>
+        </div>
+
+        <div class="flex flex-row space-x-8">
+            <div class="w-1/2">
+                <div class="conclusion-box">
+                    <p class="text-2xl font-bold mb-4">O Compose é o futuro da UI no Android.</p>
+                    <p class="text-xl">Entender seus fundamentos desde já acelera seu crescimento como Dev Android.</p>
+                </div>
+
+                <div class="mt-6">
+                    <div class="tip-item">
+                        <i class="fas fa-compass tip-icon"></i>
+                        <p class="text-xl"><strong>Comece pequeno:</strong> migre uma tela simples.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <i class="fas fa-sync-alt tip-icon"></i>
+                        <p class="text-xl"><strong>Pratique</strong> com estados, listas e navegação.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <i class="fas fa-comments tip-icon"></i>
+                        <p class="text-xl"><strong>Compartilhe conhecimento</strong> com a comunidade.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-1/2 flex justify-center items-center">
+                <div class="image-container">
+                    <img src="images/compose_semantics.jpg" alt="Jetpack Compose Semantics" class="slide-image">
+                </div>
+            </div>
+        </div>
+        <!-- Aqui deve constar uma secao informando as ferramentas utilizadas para riacao desta apresentacao. Foram elas ChatGGT e Manus.ai -->
+        <!-- Deve cosntar os links para as duas feramentas -->
+        <div class="mt-8">
+            <p class="text-xl font-bold">Ferramentas utilizadas:</p>
+            <ul class="list-disc pl-6 mt-2">
+                <li><a href="https://chat.openai.com" class="text-blue-600 hover:underline">ChatGPT</a> - Para
+                    geração de conteúdo e ideias.</li>
+                <li><a href="https://manus.im/invitation/VP8DLN1UDXPK"
+                        class="text-blue-600 hover:underline">Manus.ai</a> - Para criação e
+                    formatação dos slides.</li>
+            </ul>
+        </div>
+        <div class="mt-6">
+            <div class="mt-auto pt-8 flex justify-center">
+                <p class="text-2xl font-bold">Obrigado!</p>
+            </div>
+        </div>
+        <a href="slide_12.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
+</body>
+
+</html>

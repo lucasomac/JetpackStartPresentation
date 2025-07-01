@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .slide-container {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #121212;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .android-green {
+            color: #3DDC84;
+        }
+
+        .kotlin-purple {
+            color: #7F52FF;
+        }
+
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .code-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            font-weight: bold;
+        }
+
+        .xml-header {
+            background-color: #3DDC84;
+            color: white;
+        }
+
+        .kotlin-header {
+            background-color: #7F52FF;
+            color: white;
+        }
+
+        .code-content {
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+
+        .xml-content {
+            background-color: rgba(61, 220, 132, 0.1);
+        }
+
+        .kotlin-content {
+            background-color: rgba(127, 82, 255, 0.1);
+        }
+
+        .conclusion {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(61, 220, 132, 0.2);
+            border-radius: 8px;
+        }
+
+        .conclusion-icon {
+            margin-right: 15px;
+            color: #3DDC84;
+            font-size: 24px;
+        }
+
+        .nav-button {
+            position: absolute;
+            bottom: 20px;
+            padding: 10px 20px;
+            background-color: #7F52FF;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #6642E0;
+        }
+
+        .prev-button {
+            left: 20px;
+        }
+
+        .next-button {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container flex flex-col p-10">
+    <div class="flex items-center mb-8">
+        <h1 class="title flex-grow"><span class="android-green">🧱</span> Exemplo Comparativo</h1>
+    </div>
+
+    <div class="flex flex-row space-x-6">
+        <div class="w-1/2">
+            <div class="code-container">
+                <div class="code-header xml-header">
+                    <span>XML + ViewBinding</span>
+                </div>
+                <div class="code-content xml-content">
+                    &lt;TextView
+                    android:text="Olá"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/&gt;
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <p class="text-lg">Necessita:</p>
+                <ul class="list-disc ml-6 mt-2">
+                    <li class="text-lg">Arquivo XML separado</li>
+                    <li class="text-lg">Binding para acessar a view</li>
+                    <li class="text-lg">Sincronização manual de estado</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="w-1/2">
+            <div class="code-container">
+                <div class="code-header kotlin-header">
+                    <span>Jetpack Compose</span>
+                </div>
+                <div class="code-content kotlin-content">
+                    Text(text = "Olá")
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <p class="text-lg">Vantagens:</p>
+                <ul class="list-disc ml-6 mt-2">
+                    <li class="text-lg">Código Kotlin direto</li>
+                    <li class="text-lg">Sem arquivos separados</li>
+                    <li class="text-lg">Reatividade automática</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="conclusion mt-8">
+        <i class="fas fa-chart-line conclusion-icon"></i>
+        <p class="text-xl"><strong>Compose elimina o XML e o boilerplate</strong>, simplificando o desenvolvimento de UI
+        </p>
+    </div>
+</div>
+<a href="slide_03.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
+<a href="slide_05.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
+</body>
+</html>
+

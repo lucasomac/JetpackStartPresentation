@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .slide-container {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #121212;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .android-green {
+            color: #3DDC84;
+        }
+
+        .kotlin-purple {
+            color: #7F52FF;
+        }
+
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th {
+            background-color: #7F52FF;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .comparison-table tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .xml-column {
+            background-color: rgba(102, 231, 160, 0.779) !important;
+        }
+
+        .compose-column {
+            background-color: rgba(126, 89, 228, 0.706) !important;
+        }
+
+        .nav-button {
+            position: absolute;
+            bottom: 20px;
+            padding: 10px 20px;
+            background-color: #7F52FF;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #6642E0;
+        }
+
+        .prev-button {
+            left: 20px;
+        }
+
+        .next-button {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container flex flex-col p-10">
+    <div class="flex items-center mb-8">
+        <h1 class="title flex-grow"><span class="android-green">⚔️</span> <span class="kotlin-purple">Compose</span> vs
+            View Binding/XML</h1>
+    </div>
+
+    <div class="flex justify-center">
+        <table class="comparison-table">
+            <thead>
+            <tr>
+                <th style="width: 30%">Característica</th>
+                <th style="width: 35%" class="xml-column">View Binding/XML</th>
+                <th style="width: 35%" class="compose-column">Jetpack Compose</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><strong>Linguagem de UI</strong></td>
+                <td class="xml-column">XML</td>
+                <td class="compose-column">Kotlin puro</td>
+            </tr>
+            <tr>
+                <td><strong>Ciclo de vida da UI</strong></td>
+                <td class="xml-column">Manual/Imperativo</td>
+                <td class="compose-column">Reativo/Declarativo</td>
+            </tr>
+            <tr>
+                <td><strong>Reutilização</strong></td>
+                <td class="xml-column">Baixa</td>
+                <td class="compose-column">Alta (Composable Functions)</td>
+            </tr>
+            <tr>
+                <td><strong>Atualização de UI</strong></td>
+                <td class="xml-column">findViewById() / DataBinding</td>
+                <td class="compose-column">Estado reativo (State)</td>
+            </tr>
+            <tr>
+                <td><strong>Preview de UI</strong></td>
+                <td class="xml-column">Limitado</td>
+                <td class="compose-column">Em tempo real no Android Studio</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<a href="slide_02.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
+<a href="slide_04.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
+</body>
+</html>
+

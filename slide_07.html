@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .slide-container {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #121212;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .android-green {
+            color: #3DDC84;
+        }
+
+        .kotlin-purple {
+            color: #7F52FF;
+        }
+
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background-color: rgba(127, 82, 255, 0.1);
+            border-left: 4px solid #7F52FF;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .code-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            font-weight: bold;
+            background-color: #7F52FF;
+            color: white;
+        }
+
+        .code-content {
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            background-color: rgba(127, 82, 255, 0.1);
+        }
+
+        .state-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .state-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .nav-button {
+            position: absolute;
+            bottom: 20px;
+            padding: 10px 20px;
+            background-color: #7F52FF;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #6642E0;
+        }
+
+        .prev-button {
+            left: 20px;
+        }
+
+        .next-button {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container flex flex-col p-10">
+    <div class="flex items-center mb-6">
+        <h1 class="title flex-grow"><span class="android-green">🧩</span> UI State no <span
+                class="kotlin-purple">Compose</span></h1>
+    </div>
+
+    <div class="flex flex-row space-x-8">
+        <div class="w-1/2">
+            <div class="info-box">
+                <p class="text-xl mb-2"><strong>UI State representa os estados da tela:</strong></p>
+                <div class="state-item">
+                    <div class="state-icon" style="background-color: #3DDC84;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                    <p class="text-lg">Carregando</p>
+                </div>
+                <div class="state-item">
+                    <div class="state-icon" style="background-color: #7F52FF;">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p class="text-lg">Sucesso (dados carregados)</p>
+                </div>
+                <div class="state-item">
+                    <div class="state-icon" style="background-color: #FF5252;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <p class="text-lg">Erro</p>
+                </div>
+                <div class="state-item">
+                    <div class="state-icon" style="background-color: #9E9E9E;">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <p class="text-lg">Vazio (sem dados)</p>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <p class="text-xl mb-2"><strong>Boas práticas:</strong></p>
+                <ul class="list-disc ml-6">
+                    <li class="text-lg mb-2">Usado com <span class="kotlin-purple">sealed class</span> ou <span
+                            class="kotlin-purple">data class</span></li>
+                    <li class="text-lg">Mantido no <span class="android-green">ViewModel</span>, observado pelo
+                        Composable
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="w-1/2">
+            <div class="code-container">
+                <div class="code-header">
+                    <span>Implementação com sealed class</span>
+                </div>
+                <div class="code-content">
+                    sealed class UiState {
+                    object Loading : UiState()
+                    data class Success(val data: List
+                    <Item>) : UiState()
+                        data class Error(val message: String) : UiState()
+                        object Empty : UiState()
+                        }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="slide_06.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
+<a href="slide_08.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
+</body>
+</html>
+
