@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -112,65 +113,67 @@
         }
     </style>
 </head>
+
 <body>
-<div class="slide-container flex flex-col p-10">
-    <div class="flex items-center mb-8">
-        <h1 class="title flex-grow"><span class="android-green">🧱</span> Exemplo Comparativo</h1>
-    </div>
+    <div class="slide-container flex flex-col p-10">
+        <div class="flex items-center mb-8">
+            <h1 class="title flex-grow"><span class="android-green">🧱</span> Exemplo Comparativo</h1>
+        </div>
 
-    <div class="flex flex-row space-x-6">
-        <div class="w-1/2">
-            <div class="code-container">
-                <div class="code-header xml-header">
-                    <span>XML + ViewBinding</span>
+        <div class="flex flex-row space-x-6">
+            <div class="w-1/2">
+                <div class="code-container">
+                    <div class="code-header xml-header">
+                        <span>XML + ViewBinding</span>
+                    </div>
+                    <div class="code-content xml-content">
+                        &lt;TextView
+                        android:text="Olá"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/&gt;
+                    </div>
                 </div>
-                <div class="code-content xml-content">
-                    &lt;TextView
-                    android:text="Olá"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/&gt;
+
+                <div class="mt-4">
+                    <p class="text-lg">Necessita:</p>
+                    <ul class="list-disc ml-6 mt-2">
+                        <li class="text-lg">Arquivo XML separado</li>
+                        <li class="text-lg">Binding para acessar a view</li>
+                        <li class="text-lg">Sincronização manual de estado</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="mt-4">
-                <p class="text-lg">Necessita:</p>
-                <ul class="list-disc ml-6 mt-2">
-                    <li class="text-lg">Arquivo XML separado</li>
-                    <li class="text-lg">Binding para acessar a view</li>
-                    <li class="text-lg">Sincronização manual de estado</li>
-                </ul>
+            <div class="w-1/2">
+                <div class="code-container">
+                    <div class="code-header kotlin-header">
+                        <span>Jetpack Compose</span>
+                    </div>
+                    <div class="code-content kotlin-content">
+                        Text(text = "Olá")
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <p class="text-lg">Vantagens:</p>
+                    <ul class="list-disc ml-6 mt-2">
+                        <li class="text-lg">Código Kotlin direto</li>
+                        <li class="text-lg">Sem arquivos separados</li>
+                        <li class="text-lg">Reatividade automática</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <div class="w-1/2">
-            <div class="code-container">
-                <div class="code-header kotlin-header">
-                    <span>Jetpack Compose</span>
-                </div>
-                <div class="code-content kotlin-content">
-                    Text(text = "Olá")
-                </div>
-            </div>
-
-            <div class="mt-4">
-                <p class="text-lg">Vantagens:</p>
-                <ul class="list-disc ml-6 mt-2">
-                    <li class="text-lg">Código Kotlin direto</li>
-                    <li class="text-lg">Sem arquivos separados</li>
-                    <li class="text-lg">Reatividade automática</li>
-                </ul>
-            </div>
+        <div class="conclusion mt-8">
+            <i class="fas fa-chart-line conclusion-icon"></i>
+            <p class="text-xl"><strong>Compose elimina o XML e o boilerplate</strong>, simplificando o desenvolvimento
+                de UI
+            </p>
         </div>
     </div>
-
-    <div class="conclusion mt-8">
-        <i class="fas fa-chart-line conclusion-icon"></i>
-        <p class="text-xl"><strong>Compose elimina o XML e o boilerplate</strong>, simplificando o desenvolvimento de UI
-        </p>
-    </div>
-</div>
-<a href="slide_03.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
-<a href="slide_05.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
+    <a href="slide_03.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
+    <a href="slide_05.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
 </body>
-</html>
 
+</html>

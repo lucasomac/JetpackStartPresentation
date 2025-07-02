@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,233 +90,235 @@
         }
     </style>
 </head>
+
 <body>
-<div class="slide-container flex flex-col p-10">
-    <div class="flex items-center mb-6">
-        <h1 class="title flex-grow"><span class="android-green">🕹️</span> Exemplo de uso de <span class="kotlin-purple">UI State</span>
-        </h1>
-    </div>
+    <div class="slide-container flex flex-col p-10">
+        <div class="flex items-center mb-6">
+            <h1 class="title flex-grow"><span class="android-green">🕹️</span> Exemplo de uso de <span
+                    class="kotlin-purple">UI State</span>
+            </h1>
+        </div>
 
-    <div class="flex flex-row space-x-8">
-        <div class="w-1/2">
-            <div class="code-container">
-                <div class="code-header">
-                    <span>Composable que reage ao estado</span>
+        <div class="flex flex-row space-x-8">
+            <div class="w-1/2">
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Composable que reage ao estado</span>
+                    </div>
+                    <div class="code-content">
+                        @Composable
+                        fun MyScreen(uiState: UiState) {
+                        when (uiState) {
+                        is UiState.Loading -> CircularProgressIndicator()
+                        is UiState.Success -> LazyColumn {
+                        /* renderiza lista */
+                        }
+                        is UiState.Error -> Text("Erro: ${uiState.message}")
+                        is UiState.Empty -> Text("Nenhum item encontrado")
+                        }
+                        }
+                    </div>
                 </div>
-                <div class="code-content">
-                    @Composable
-                    fun MyScreen(uiState: UiState) {
-                    when (uiState) {
-                    is UiState.Loading -> CircularProgressIndicator()
-                    is UiState.Success -> LazyColumn {
-                    /* renderiza lista */
-                    }
-                    is UiState.Error -> Text("Erro: ${uiState.message}")
-                    is UiState.Empty -> Text("Nenhum item encontrado")
-                    }
-                    }
+
+                <div class="mt-6">
+                    <p class="text-xl mb-2"><strong>Vantagens:</strong></p>
+                    <ul class="list-disc ml-6">
+                        <li class="text-lg mb-2">Código mais limpo e organizado</li>
+                        <li class="text-lg mb-2">Fácil de testar cada estado separadamente</li>
+                        <li class="text-lg">Experiência de usuário consistente</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="mt-6">
-                <p class="text-xl mb-2"><strong>Vantagens:</strong></p>
-                <ul class="list-disc ml-6">
-                    <li class="text-lg mb-2">Código mais limpo e organizado</li>
-                    <li class="text-lg mb-2">Fácil de testar cada estado separadamente</li>
-                    <li class="text-lg">Experiência de usuário consistente</li>
-                </ul>
+            <div class="w-1/2">
+                <div class="preview-container" id="ui-state-preview"></div>
             </div>
         </div>
-
-        <div class="w-1/2">
-            <div class="preview-container" id="ui-state-preview"></div>
-        </div>
     </div>
-</div>
 
-<script>
-    // Visualização interativa dos estados de UI usando D3.js
-    document.addEventListener('DOMContentLoaded', function () {
-        const width = 400;
-        const height = 400;
+    <script>
+        // Visualização interativa dos estados de UI usando D3.js
+        document.addEventListener('DOMContentLoaded', function () {
+            const width = 400;
+            const height = 400;
 
-        const svg = d3.select("#ui-state-preview")
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height);
+            const svg = d3.select("#ui-state-preview")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
 
-        // Cores
-        const loadingColor = "#3DDC84";
-        const successColor = "#7F52FF";
-        const errorColor = "#FF5252";
-        const emptyColor = "#9E9E9E";
+            // Cores
+            const loadingColor = "#3DDC84";
+            const successColor = "#7F52FF";
+            const errorColor = "#FF5252";
+            const emptyColor = "#9E9E9E";
 
-        // Estado inicial
-        let currentState = "loading";
-        const states = ["loading", "success", "error", "empty"];
+            // Estado inicial
+            let currentState = "loading";
+            const states = ["loading", "success", "error", "empty"];
 
-        // Título
-        svg.append("text")
-            .attr("x", width / 2)
-            .attr("y", 30)
-            .attr("text-anchor", "middle")
-            .attr("font-size", "18px")
-            .attr("font-weight", "bold")
-            .text("Visualização dos Estados");
-
-        // Container para o conteúdo do estado
-        const stateContainer = svg.append("g")
-            .attr("transform", `translate(${width / 2}, ${height / 2})`);
-
-        // Botões para alternar estados
-        const buttonWidth = 80;
-        const buttonHeight = 30;
-        const buttonSpacing = 10;
-        const totalButtonsWidth = states.length * buttonWidth + (states.length - 1) * buttonSpacing;
-        const startX = (width - totalButtonsWidth) / 2;
-
-        states.forEach((state, i) => {
-            const buttonX = startX + i * (buttonWidth + buttonSpacing);
-            const buttonColor = state === "loading" ? loadingColor :
-                state === "success" ? successColor :
-                    state === "error" ? errorColor : emptyColor;
-
-            const button = svg.append("g")
-                .attr("cursor", "pointer")
-                .on("click", function () {
-                    currentState = state;
-                    updateStateView();
-                });
-
-            button.append("rect")
-                .attr("x", buttonX)
-                .attr("y", height - 50)
-                .attr("width", buttonWidth)
-                .attr("height", buttonHeight)
-                .attr("rx", 15)
-                .attr("ry", 15)
-                .attr("fill", buttonColor);
-
-            button.append("text")
-                .attr("x", buttonX + buttonWidth / 2)
-                .attr("y", height - 50 + buttonHeight / 2 + 5)
+            // Título
+            svg.append("text")
+                .attr("x", width / 2)
+                .attr("y", 30)
                 .attr("text-anchor", "middle")
-                .attr("fill", "white")
-                .attr("font-size", "12px")
-                .text(state.charAt(0).toUpperCase() + state.slice(1));
-        });
+                .attr("font-size", "18px")
+                .attr("font-weight", "bold")
+                .text("Visualização dos Estados");
 
-        function updateStateView() {
-            // Limpar conteúdo anterior
-            stateContainer.selectAll("*").remove();
+            // Container para o conteúdo do estado
+            const stateContainer = svg.append("g")
+                .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
-            if (currentState === "loading") {
-                // Círculo de progresso girando
-                const loadingCircle = stateContainer.append("circle")
-                    .attr("r", 40)
-                    .attr("fill", "none")
-                    .attr("stroke", loadingColor)
-                    .attr("stroke-width", 8)
-                    .attr("stroke-dasharray", 80)
-                    .attr("stroke-dashoffset", 80);
+            // Botões para alternar estados
+            const buttonWidth = 80;
+            const buttonHeight = 30;
+            const buttonSpacing = 10;
+            const totalButtonsWidth = states.length * buttonWidth + (states.length - 1) * buttonSpacing;
+            const startX = (width - totalButtonsWidth) / 2;
 
-                // Animação de rotação
-                function rotate() {
-                    loadingCircle
-                        .attr("transform", "rotate(0)")
-                        .transition()
-                        .duration(1000)
-                        .attr("transform", "rotate(360)")
-                        .on("end", rotate);
-                }
+            states.forEach((state, i) => {
+                const buttonX = startX + i * (buttonWidth + buttonSpacing);
+                const buttonColor = state === "loading" ? loadingColor :
+                    state === "success" ? successColor :
+                        state === "error" ? errorColor : emptyColor;
 
-                rotate();
+                const button = svg.append("g")
+                    .attr("cursor", "pointer")
+                    .on("click", function () {
+                        currentState = state;
+                        updateStateView();
+                    });
 
-                stateContainer.append("text")
-                    .attr("y", 80)
+                button.append("rect")
+                    .attr("x", buttonX)
+                    .attr("y", height - 50)
+                    .attr("width", buttonWidth)
+                    .attr("height", buttonHeight)
+                    .attr("rx", 15)
+                    .attr("ry", 15)
+                    .attr("fill", buttonColor);
+
+                button.append("text")
+                    .attr("x", buttonX + buttonWidth / 2)
+                    .attr("y", height - 50 + buttonHeight / 2 + 5)
                     .attr("text-anchor", "middle")
-                    .attr("font-size", "16px")
-                    .text("Carregando...");
-            } else if (currentState === "success") {
-                // Lista de itens
-                const itemHeight = 30;
-                const itemWidth = 200;
-                const items = 5;
+                    .attr("fill", "white")
+                    .attr("font-size", "12px")
+                    .text(state.charAt(0).toUpperCase() + state.slice(1));
+            });
 
-                for (let i = 0; i < items; i++) {
-                    stateContainer.append("rect")
-                        .attr("x", -itemWidth / 2)
-                        .attr("y", -100 + i * (itemHeight + 5))
-                        .attr("width", itemWidth)
-                        .attr("height", itemHeight)
-                        .attr("rx", 5)
-                        .attr("ry", 5)
-                        .attr("fill", successColor)
+            function updateStateView() {
+                // Limpar conteúdo anterior
+                stateContainer.selectAll("*").remove();
+
+                if (currentState === "loading") {
+                    // Círculo de progresso girando
+                    const loadingCircle = stateContainer.append("circle")
+                        .attr("r", 40)
+                        .attr("fill", "none")
+                        .attr("stroke", loadingColor)
+                        .attr("stroke-width", 8)
+                        .attr("stroke-dasharray", 80)
+                        .attr("stroke-dashoffset", 80);
+
+                    // Animação de rotação
+                    function rotate() {
+                        loadingCircle
+                            .attr("transform", "rotate(0)")
+                            .transition()
+                            .duration(1000)
+                            .attr("transform", "rotate(360)")
+                            .on("end", rotate);
+                    }
+
+                    rotate();
+
+                    stateContainer.append("text")
+                        .attr("y", 80)
+                        .attr("text-anchor", "middle")
+                        .attr("font-size", "16px")
+                        .text("Carregando...");
+                } else if (currentState === "success") {
+                    // Lista de itens
+                    const itemHeight = 30;
+                    const itemWidth = 200;
+                    const items = 5;
+
+                    for (let i = 0; i < items; i++) {
+                        stateContainer.append("rect")
+                            .attr("x", -itemWidth / 2)
+                            .attr("y", -100 + i * (itemHeight + 5))
+                            .attr("width", itemWidth)
+                            .attr("height", itemHeight)
+                            .attr("rx", 5)
+                            .attr("ry", 5)
+                            .attr("fill", successColor)
+                            .attr("opacity", 0.2);
+
+                        stateContainer.append("text")
+                            .attr("x", -itemWidth / 2 + 10)
+                            .attr("y", -100 + i * (itemHeight + 5) + itemHeight / 2 + 5)
+                            .attr("font-size", "14px")
+                            .text(`Item ${i + 1}`);
+                    }
+                } else if (currentState === "error") {
+                    // Ícone de erro
+                    stateContainer.append("circle")
+                        .attr("r", 40)
+                        .attr("fill", errorColor)
                         .attr("opacity", 0.2);
 
                     stateContainer.append("text")
-                        .attr("x", -itemWidth / 2 + 10)
-                        .attr("y", -100 + i * (itemHeight + 5) + itemHeight / 2 + 5)
-                        .attr("font-size", "14px")
-                        .text(`Item ${i + 1}`);
+                        .attr("text-anchor", "middle")
+                        .attr("font-size", "40px")
+                        .attr("fill", errorColor)
+                        .attr("y", 15)
+                        .text("!");
+
+                    stateContainer.append("text")
+                        .attr("y", 80)
+                        .attr("text-anchor", "middle")
+                        .attr("font-size", "16px")
+                        .attr("fill", errorColor)
+                        .text("Erro: Falha ao carregar dados");
+                } else if (currentState === "empty") {
+                    // Estado vazio
+                    stateContainer.append("circle")
+                        .attr("r", 40)
+                        .attr("fill", emptyColor)
+                        .attr("opacity", 0.2);
+
+                    stateContainer.append("line")
+                        .attr("x1", -20)
+                        .attr("y1", -20)
+                        .attr("x2", 20)
+                        .attr("y2", 20)
+                        .attr("stroke", emptyColor)
+                        .attr("stroke-width", 3);
+
+                    stateContainer.append("line")
+                        .attr("x1", 20)
+                        .attr("y1", -20)
+                        .attr("x2", -20)
+                        .attr("y2", 20)
+                        .attr("stroke", emptyColor)
+                        .attr("stroke-width", 3);
+
+                    stateContainer.append("text")
+                        .attr("y", 80)
+                        .attr("text-anchor", "middle")
+                        .attr("font-size", "16px")
+                        .text("Nenhum item encontrado");
                 }
-            } else if (currentState === "error") {
-                // Ícone de erro
-                stateContainer.append("circle")
-                    .attr("r", 40)
-                    .attr("fill", errorColor)
-                    .attr("opacity", 0.2);
-
-                stateContainer.append("text")
-                    .attr("text-anchor", "middle")
-                    .attr("font-size", "40px")
-                    .attr("fill", errorColor)
-                    .attr("y", 15)
-                    .text("!");
-
-                stateContainer.append("text")
-                    .attr("y", 80)
-                    .attr("text-anchor", "middle")
-                    .attr("font-size", "16px")
-                    .attr("fill", errorColor)
-                    .text("Erro: Falha ao carregar dados");
-            } else if (currentState === "empty") {
-                // Estado vazio
-                stateContainer.append("circle")
-                    .attr("r", 40)
-                    .attr("fill", emptyColor)
-                    .attr("opacity", 0.2);
-
-                stateContainer.append("line")
-                    .attr("x1", -20)
-                    .attr("y1", -20)
-                    .attr("x2", 20)
-                    .attr("y2", 20)
-                    .attr("stroke", emptyColor)
-                    .attr("stroke-width", 3);
-
-                stateContainer.append("line")
-                    .attr("x1", 20)
-                    .attr("y1", -20)
-                    .attr("x2", -20)
-                    .attr("y2", 20)
-                    .attr("stroke", emptyColor)
-                    .attr("stroke-width", 3);
-
-                stateContainer.append("text")
-                    .attr("y", 80)
-                    .attr("text-anchor", "middle")
-                    .attr("font-size", "16px")
-                    .text("Nenhum item encontrado");
             }
-        }
 
-        // Inicializar com o estado de carregamento
-        updateStateView();
-    });
-</script>
-<a href="slide_07.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
-<a href="slide_09.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
+            // Inicializar com o estado de carregamento
+            updateStateView();
+        });
+    </script>
+    <a href="slide_07.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
+    <a href="slide_09.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
 </body>
-</html>
 
+</html>

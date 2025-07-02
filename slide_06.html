@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,173 +99,176 @@
         }
     </style>
 </head>
+
 <body>
-<div class="slide-container flex flex-col p-10">
-    <div class="flex items-center mb-6">
-        <h1 class="title flex-grow"><span class="android-green">🎯</span> State Hoisting: <span class="kotlin-purple">Exemplo</span>
-        </h1>
-    </div>
-
-    <div class="flex flex-row space-x-6">
-        <div class="w-1/2">
-            <div class="code-container">
-                <div class="code-header">
-                    <span>Componente reutilizável</span>
-                </div>
-                <div class="code-content">
-                    @Composable
-                    fun Counter(count: Int, onIncrement: () -> Unit) {
-                    Button(onClick = onIncrement) {
-                    Text("Count: $count")
-                    }
-                    }
-                </div>
-            </div>
-
-            <div class="annotation">
-                <p class="text-lg"><i class="fas fa-info-circle mr-2 android-green"></i> O componente <strong>não
-                    gerencia</strong> seu próprio estado, recebendo-o como parâmetro</p>
-            </div>
-
-            <div class="code-container mt-6">
-                <div class="code-header">
-                    <span>Hoisting no nível superior</span>
-                </div>
-                <div class="code-content">
-                    @Composable
-                    fun MyScreen() {
-                    var count by remember { mutableStateOf(0) }
-                    Counter(count = count, onIncrement = { count++ })
-                    }
-                </div>
-            </div>
-
-            <div class="annotation">
-                <p class="text-lg"><i class="fas fa-info-circle mr-2 android-green"></i> O componente pai <strong>gerencia
-                    o estado</strong> e passa para o filho</p>
-            </div>
+    <div class="slide-container flex flex-col p-10">
+        <div class="flex items-center mb-6">
+            <h1 class="title flex-grow"><span class="android-green">🎯</span> State Hoisting: <span
+                    class="kotlin-purple">Exemplo</span>
+            </h1>
         </div>
 
-        <div class="w-1/2">
-            <div class="preview-container" id="counter-preview"></div>
+        <div class="flex flex-row space-x-6">
+            <div class="w-1/2">
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Componente reutilizável</span>
+                    </div>
+                    <div class="code-content">
+                        @Composable
+                        fun Counter(count: Int, onIncrement: () -> Unit) {
+                        Button(onClick = onIncrement) {
+                        Text("Count: $count")
+                        }
+                        }
+                    </div>
+                </div>
+
+                <div class="annotation">
+                    <p class="text-lg"><i class="fas fa-info-circle mr-2 android-green"></i> O componente <strong>não
+                            gerencia</strong> seu próprio estado, recebendo-o como parâmetro</p>
+                </div>
+
+                <div class="code-container mt-6">
+                    <div class="code-header">
+                        <span>Hoisting no nível superior</span>
+                    </div>
+                    <div class="code-content">
+                        @Composable
+                        fun MyScreen() {
+                        var count by remember { mutableStateOf(0) }
+                        Counter(count = count, onIncrement = { count++ })
+                        }
+                    </div>
+                </div>
+
+                <div class="annotation">
+                    <p class="text-lg"><i class="fas fa-info-circle mr-2 android-green"></i> O componente pai
+                        <strong>gerencia
+                            o estado</strong> e passa para o filho
+                    </p>
+                </div>
+            </div>
+
+            <div class="w-1/2">
+                <div class="preview-container" id="counter-preview"></div>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-    // Simulação interativa do Counter usando D3.js
-    document.addEventListener(\'DOMContentLoaded\', function() {
-    const width = 400;
-    const height = 300;
+    <script>
+        // Simulação interativa do Counter usando D3.js
+        document.addEventListener('DOMContentLoaded', function () {
+            const width = 400;
+            const height = 300;
 
-    const svg = d3.select("#counter-preview")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
+            const svg = d3.select("#counter-preview")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
 
-    // Cores
-    const buttonColor = "#7F52FF";
-    const buttonHoverColor = "#6642E0";
-    const textColor = "#FFFFFF";
+            // Cores
+            const buttonColor = "#7F52FF";
+            const buttonHoverColor = "#6642E0";
+            const textColor = "#FFFFFF";
 
-    // Estado inicial
-    let count = 0;
+            // Estado inicial
+            let count = 0;
 
-    // Criar o botão
-    const button = svg.append("g")
-        .attr("cursor", "pointer");
+            // Criar o botão
+            const button = svg.append("g")
+                .attr("cursor", "pointer");
 
-    const buttonRect = button.append("rect")
-        .attr("x", 100)
-        .attr("y", 120)
-        .attr("width", 200)
-        .attr("height", 60)
-        .attr("rx", 30)
-        .attr("ry", 30)
-        .attr("fill", buttonColor);
-
-    const buttonText = button.append("text")
-        .attr("x", 200)
-        .attr("y", 155)
-        .attr("text-anchor", "middle")
-        .attr("font-size", "20px")
-        .attr("fill", textColor)
-        .text(`Count: ${count}`);
-
-    // Título da simulação
-    svg.append("text")
-        .attr("x", 200)
-        .attr("y", 50)
-        .attr("text-anchor", "middle")
-        .attr("font-size", "18px")
-        .attr("font-weight", "bold")
-        .text("Simulação Interativa");
-
-    svg.append("text")
-        .attr("x", 200)
-        .attr("y", 75)
-        .attr("text-anchor", "middle")
-        .attr("font-size", "14px")
-        .text("Clique no botão para incrementar");
-
-    // Interatividade
-    button
-        .on("mouseover", function () {
-            buttonRect.attr("fill", buttonHoverColor);
-        })
-        .on("mouseout", function () {
-            buttonRect.attr("fill", buttonColor);
-        })
-        .on("click", function () {
-            count++;
-            buttonText.text(`Count: ${count}`);
-
-            // Efeito visual de clique
-            const originalWidth = 200;
-            const originalHeight = 60;
-
-            buttonRect
-                .transition()
-                .duration(100)
-                .attr("width", originalWidth - 10)
-                .attr("height", originalHeight - 5)
-                .attr("x", 105)
-                .attr("y", 122.5)
-                .transition()
-                .duration(100)
-                .attr("width", originalWidth)
-                .attr("height", originalHeight)
+            const buttonRect = button.append("rect")
                 .attr("x", 100)
-                .attr("y", 120);
+                .attr("y", 120)
+                .attr("width", 200)
+                .attr("height", 60)
+                .attr("rx", 30)
+                .attr("ry", 30)
+                .attr("fill", buttonColor);
+
+            const buttonText = button.append("text")
+                .attr("x", 200)
+                .attr("y", 155)
+                .attr("text-anchor", "middle")
+                .attr("font-size", "20px")
+                .attr("fill", textColor)
+                .text(`Count: ${count}`);
+
+            // Título da simulação
+            svg.append("text")
+                .attr("x", 200)
+                .attr("y", 50)
+                .attr("text-anchor", "middle")
+                .attr("font-size", "18px")
+                .attr("font-weight", "bold")
+                .text("Simulação Interativa");
+
+            svg.append("text")
+                .attr("x", 200)
+                .attr("y", 75)
+                .attr("text-anchor", "middle")
+                .attr("font-size", "14px")
+                .text("Clique no botão para incrementar");
+
+            // Interatividade
+            button
+                .on("mouseover", function () {
+                    buttonRect.attr("fill", buttonHoverColor);
+                })
+                .on("mouseout", function () {
+                    buttonRect.attr("fill", buttonColor);
+                })
+                .on("click", function () {
+                    count++;
+                    buttonText.text(`Count: ${count}`);
+
+                    // Efeito visual de clique
+                    const originalWidth = 200;
+                    const originalHeight = 60;
+
+                    buttonRect
+                        .transition()
+                        .duration(100)
+                        .attr("width", originalWidth - 10)
+                        .attr("height", originalHeight - 5)
+                        .attr("x", 105)
+                        .attr("y", 122.5)
+                        .transition()
+                        .duration(100)
+                        .attr("width", originalWidth)
+                        .attr("height", originalHeight)
+                        .attr("x", 100)
+                        .attr("y", 120);
+                });
+
+            // Setas indicando o fluxo de dados
+            svg.append("text")
+                .attr("x", 200)
+                .attr("y", 220)
+                .attr("text-anchor", "middle")
+                .attr("font-size", "16px")
+                .attr("fill", "#3DDC84")
+                .text("Estado gerenciado externamente");
+
+            // Seta para baixo (estado)
+            svg.append("path")
+                .attr("d", "M180,240 L180,270 L160,250 M180,270 L200,250")
+                .attr("stroke", "#3DDC84")
+                .attr("stroke-width", 2)
+                .attr("fill", "none");
+
+            // Seta para cima (evento)
+            svg.append("path")
+                .attr("d", "M220,270 L220,240 L200,260 M220,240 L240,260")
+                .attr("stroke", "#7F52FF")
+                .attr("stroke-width", 2)
+                .attr("fill", "none");
         });
-
-    // Setas indicando o fluxo de dados
-    svg.append("text")
-        .attr("x", 200)
-        .attr("y", 220)
-        .attr("text-anchor", "middle")
-        .attr("font-size", "16px")
-        .attr("fill", "#3DDC84")
-        .text("Estado gerenciado externamente");
-
-    // Seta para baixo (estado)
-    svg.append("path")
-        .attr("d", "M180,240 L180,270 L160,250 M180,270 L200,250")
-        .attr("stroke", "#3DDC84")
-        .attr("stroke-width", 2)
-        .attr("fill", "none");
-
-    // Seta para cima (evento)
-    svg.append("path")
-        .attr("d", "M220,270 L220,240 L200,260 M220,240 L240,260")
-        .attr("stroke", "#7F52FF")
-        .attr("stroke-width", 2)
-        .attr("fill", "none");
-    })
-    ;
-</script>
-<a href="slide_05.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
-<a href="slide_07.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
+    </script>
+    <a href="slide_05.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
+    <a href="slide_07.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
 </body>
-</html>
 
+</html>

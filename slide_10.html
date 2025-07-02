@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -119,70 +120,72 @@
         }
     </style>
 </head>
+
 <body>
-<div class="slide-container flex flex-col p-10">
-    <div class="flex items-center mb-6">
-        <h1 class="title flex-grow"><span class="android-green">🎨</span> <span
-                class="kotlin-purple">MaterialTheme</span>: Estilização Consistente</h1>
-    </div>
+    <div class="slide-container flex flex-col p-10">
+        <div class="flex items-center mb-6">
+            <h1 class="title flex-grow"><span class="android-green">🎨</span> <span
+                    class="kotlin-purple">MaterialTheme</span>: Estilização Consistente</h1>
+        </div>
 
-    <div class="flex flex-row space-x-8">
-        <div class="w-1/2">
-            <p class="text-xl mb-4">O <strong>MaterialTheme</strong> fornece uma maneira consistente de aplicar estilos
-                em toda a aplicação:</p>
+        <div class="flex flex-row space-x-8">
+            <div class="w-1/2">
+                <p class="text-xl mb-4">O <strong>MaterialTheme</strong> fornece uma maneira consistente de aplicar
+                    estilos
+                    em toda a aplicação:</p>
 
-            <div class="theme-item">
-                <i class="fas fa-palette theme-icon"></i>
-                <p class="text-lg"><strong>colors</strong>: Esquema de cores do aplicativo</p>
-            </div>
-
-            <div class="theme-item">
-                <i class="fas fa-font theme-icon"></i>
-                <p class="text-lg"><strong>typography</strong>: Estilos de texto e fontes</p>
-            </div>
-
-            <div class="theme-item">
-                <i class="fas fa-border-style theme-icon"></i>
-                <p class="text-lg"><strong>shapes</strong>: Formas para componentes</p>
-            </div>
-
-            <div class="color-palette">
-                <div class="color-swatch" style="background-color: #6200EE;"></div>
-                <div class="color-swatch" style="background-color: #3700B3;"></div>
-                <div class="color-swatch" style="background-color: #03DAC6;"></div>
-                <div class="color-swatch" style="background-color: #018786;"></div>
-                <div class="color-swatch" style="background-color: #B00020;"></div>
-            </div>
-
-            <div class="code-container">
-                <div class="code-header">
-                    <span>Definindo um tema personalizado</span>
+                <div class="theme-item">
+                    <i class="fas fa-palette theme-icon"></i>
+                    <p class="text-lg"><strong>colors</strong>: Esquema de cores do aplicativo</p>
                 </div>
-                <div class="code-content">
-                    MaterialTheme(
-                    colors = lightColors(
-                    primary = Color(0xFF6200EE),
-                    primaryVariant = Color(0xFF3700B3),
-                    secondary = Color(0xFF03DAC6)
-                    ),
-                    typography = Typography(...),
-                    shapes = Shapes(...)
-                    ) {
-                    // Conteúdo do aplicativo
-                    }
+
+                <div class="theme-item">
+                    <i class="fas fa-font theme-icon"></i>
+                    <p class="text-lg"><strong>typography</strong>: Estilos de texto e fontes</p>
+                </div>
+
+                <div class="theme-item">
+                    <i class="fas fa-border-style theme-icon"></i>
+                    <p class="text-lg"><strong>shapes</strong>: Formas para componentes</p>
+                </div>
+
+                <div class="color-palette">
+                    <div class="color-swatch" style="background-color: #6200EE;"></div>
+                    <div class="color-swatch" style="background-color: #3700B3;"></div>
+                    <div class="color-swatch" style="background-color: #03DAC6;"></div>
+                    <div class="color-swatch" style="background-color: #018786;"></div>
+                    <div class="color-swatch" style="background-color: #B00020;"></div>
+                </div>
+
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Definindo um tema personalizado</span>
+                    </div>
+                    <div class="code-content">
+                        MaterialTheme(
+                        colors = lightColors(
+                        primary = Color(0xFF6200EE),
+                        primaryVariant = Color(0xFF3700B3),
+                        secondary = Color(0xFF03DAC6)
+                        ),
+                        typography = Typography(...),
+                        shapes = Shapes(...)
+                        ) {
+                        // Conteúdo do aplicativo
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-1/2 flex justify-center items-center">
+                <div class="image-container">
+                    <img src="./images/material_theme.png" alt="Material Theme Components" class="slide-image">
                 </div>
             </div>
         </div>
-
-        <div class="w-1/2 flex justify-center items-center">
-            <div class="image-container">
-                <img src="./images/material_theme.png" alt="Material Theme Components" class="slide-image">
-            </div>
-        </div>
     </div>
-</div>
-<a href="slide_09.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
-<a href="slide_11.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
+    <a href="slide_09.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
+    <a href="slide_11.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
 </body>
-</html>
 
+</html>

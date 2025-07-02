@@ -1,200 +1,227 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="css/style.css" rel="stylesheet">
-    <style>
-      .slide-container {
-        background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
-        font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color: #121212;
-        overflow: hidden;
-        position: relative;
-      }
-      .android-green {
-        color: #3DDC84;
-      }
-      .kotlin-purple {
-        color: #7F52FF;
-      }
-      .title {
-        font-size: 36px;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
-      .reference-section {
-        margin-bottom: 20px;
-      }
-      .section-title {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        color: #7F52FF;
-      }
-      .reference-list {
-        list-style: none;
-        padding-left: 0;
-      }
-      .reference-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 12px;
-        padding: 10px;
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      }
-      .reference-icon {
-        margin-right: 12px;
-        color: #3DDC84;
-      }
-      .reference-link {
-        color: #121212;
-        text-decoration: none;
-        font-size: 18px;
-      }
-      .reference-link:hover {
-        text-decoration: underline;
-      }
-      .nav-button {
-        position: absolute;
-        bottom: 20px;
-        padding: 10px 20px;
-        background-color: #7F52FF;
-        color: white;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.3s;
-      }
-      .nav-button:hover {
-        background-color: #6642E0;
-      }
-      .prev-button {
-        left: 20px;
-      }
-      .next-button {
-        right: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="slide-container flex flex-col p-10">
-      <div class="flex items-center mb-6">
-        <h1 class="title flex-grow"><span class="android-green">🧠</span> Recomendações para <span class="kotlin-purple">Estudo</span></h1>
-      </div>
-      
-      <div class="flex flex-row space-x-8">
-        <div class="w-1/2">
-          <div class="reference-section">
-            <h2 class="section-title">
-              <i class="fas fa-book resource-icon"></i>
-              <span>Documentação Oficial</span>
-            </h2>
-            <ul class="reference-list">
-              <li class="reference-item">
-                <i class="fas fa-link reference-icon"></i>
-                <span class="reference-text">
-                  <a href="https://developer.android.com/jetpack/compose" class="reference-link" target="_blank">Documentação do Jetpack Compose</a>
-                </span>
-              </li>
-              <li class="reference-item">
-                <i class="fas fa-code reference-icon"></i>
-                <span class="reference-text">
-                  <a href="https://developer.android.com/jetpack/compose/tutorial" class="reference-link" target="_blank">Tutorial Oficial do Jetpack Compose</a>
-                </span>
-              </li>
-              <li class="reference-item">
-                <i class="fas fa-laptop-code reference-icon"></i>
-                <span class="reference-text">
-                  <a href="https://developer.android.com/courses/android-basics-compose/course" class="reference-link" target="_blank">Android Basics with Compose</a>
-                </span>
-              </li>
-            </ul>
-          </div>
 
-          <div class="reference-section">
-            <h2 class="section-title">
-              <i class="fas fa-graduation-cap resource-icon"></i>
-              <span>Cursos e Codelabs</span>
-            </h2>
-            <ul class="reference-list">
-              <li class="reference-item">
-                <i class="fas fa-chalkboard-teacher reference-icon"></i>
-                <span class="reference-text">
-                  <a href="https://developer.android.com/codelabs/jetpack-compose-basics" class="reference-link" target="_blank">Codelab: Compose Basics</a>
-                </span>
-              </li>
-              <li class="reference-item">
-                <i class="fas fa-university reference-icon"></i>
-                <span class="reference-text">
-                  <a href="https://www.udacity.com/course/android-kotlin-compose--ud9012" class="reference-link" target="_blank">Udacity: Developing Android Apps with Compose</a>
-                </span>
-              </li>
-            </ul>
-          </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    .slide-container {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+      font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: #121212;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .android-green {
+      color: #3DDC84;
+    }
+
+    .kotlin-purple {
+      color: #7F52FF;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .reference-section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      color: #7F52FF;
+    }
+
+    .reference-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .reference-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      padding: 10px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .reference-icon {
+      margin-right: 12px;
+      color: #3DDC84;
+    }
+
+    .reference-link {
+      color: #121212;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .reference-link:hover {
+      text-decoration: underline;
+    }
+
+    .nav-button {
+      position: absolute;
+      bottom: 20px;
+      padding: 10px 20px;
+      background-color: #7F52FF;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .nav-button:hover {
+      background-color: #6642E0;
+    }
+
+    .prev-button {
+      left: 20px;
+    }
+
+    .next-button {
+      right: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slide-container flex flex-col p-10">
+    <div class="flex items-center mb-6">
+      <h1 class="title flex-grow"><span class="android-green">🧠</span> Recomendações para <span
+          class="kotlin-purple">Estudo</span></h1>
+    </div>
+
+    <div class="flex flex-row space-x-8">
+      <div class="w-1/2">
+        <div class="reference-section">
+          <h2 class="section-title">
+            <i class="fas fa-book resource-icon"></i>
+            <span>Documentação Oficial</span>
+          </h2>
+          <ul class="reference-list">
+            <li class="reference-item">
+              <i class="fas fa-link reference-icon"></i>
+              <span class="reference-text">
+                <a href="https://developer.android.com/jetpack/compose" class="reference-link"
+                  target="_blank">Documentação do Jetpack Compose</a>
+              </span>
+            </li>
+            <li class="reference-item">
+              <i class="fas fa-code reference-icon"></i>
+              <span class="reference-text">
+                <a href="https://developer.android.com/jetpack/compose/tutorial" class="reference-link"
+                  target="_blank">Tutorial Oficial do Jetpack Compose</a>
+              </span>
+            </li>
+            <li class="reference-item">
+              <i class="fas fa-laptop-code reference-icon"></i>
+              <span class="reference-text">
+                <a href="https://developer.android.com/courses/android-basics-compose/course" class="reference-link"
+                  target="_blank">Android Basics with Compose</a>
+              </span>
+            </li>
+          </ul>
         </div>
 
-        <div class="w-1/2">
-          <div class="reference-section">
-            <h2 class="section-title">
-              <i class="fas fa-video resource-icon"></i>
-              <span>Vídeos e Canais</span>
-            </h2>
-            <ul class="reference-list">
-              <li class="reference-item">
-                <i class="fab fa-youtube reference-icon"></i>
-                <span class="reference-text">
-                  <a href="https://www.youtube.com/playlist?list=PLWz5rJ2EKKc_L3n1j4ajHjJ6QccFUvW1u" class="reference-link" target="_blank">Android Developers: Jetpack Compose</a>
-                </span>
-              </li>
-              <li class="reference-item">
-                <i class="fab fa-youtube reference-icon"></i>
-                <span class="reference-text">
-                  <a href="https://www.youtube.com/c/PhilippLackner" class="reference-link" target="_blank">Philipp Lackner: Tutoriais de Compose</a>
-                </span>
-              </li>
-              <li class="reference-item">
-                <i class="fab fa-youtube reference-icon"></i>
-                <span class="reference-text">
-                  <a href="https://www.youtube.com/watch?v=6_wK_Ud8--0" class="reference-link" target="_blank">Jetpack Compose Crash Course</a>
-                </span>
-              </li>
-            </ul>
-          </div>
+        <div class="reference-section">
+          <h2 class="section-title">
+            <i class="fas fa-graduation-cap resource-icon"></i>
+            <span>Cursos e Codelabs</span>
+          </h2>
+          <ul class="reference-list">
+            <li class="reference-item">
+              <i class="fas fa-chalkboard-teacher reference-icon"></i>
+              <span class="reference-text">
+                <a href="https://developer.android.com/codelabs/jetpack-compose-basics" class="reference-link"
+                  target="_blank">Codelab: Compose Basics</a>
+              </span>
+            </li>
+            <li class="reference-item">
+              <i class="fas fa-university reference-icon"></i>
+              <span class="reference-text">
+                <a href="https://www.udacity.com/course/android-kotlin-compose--ud9012" class="reference-link"
+                  target="_blank">Udacity: Developing Android Apps with Compose</a>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-          <div class="reference-section">
-            <h2 class="section-title">
-              <i class="fab fa-github resource-icon"></i>
-              <span>Repositórios e Exemplos</span>
-            </h2>
-            <ul class="reference-list">
-              <li class="reference-item">
-                <i class="fab fa-github reference-icon"></i>
-                <span class="reference-text">
-                  <a href="https://github.com/android/compose-samples" class="reference-link" target="_blank">Compose Samples Oficiais</a>
-                </span>
-              </li>
-              <li class="reference-item">
-                <i class="fab fa-github reference-icon"></i>
-                <span class="reference-text">
-                  <a href="https://github.com/androiddevnotes/awesome-jetpack-compose-learning-resources" class="reference-link" target="_blank">Awesome Jetpack Compose Resources</a>
-                </span>
-              </li>
-            </ul>
-          </div>
+      <div class="w-1/2">
+        <div class="reference-section">
+          <h2 class="section-title">
+            <i class="fas fa-video resource-icon"></i>
+            <span>Vídeos e Canais</span>
+          </h2>
+          <ul class="reference-list">
+            <li class="reference-item">
+              <i class="fab fa-youtube reference-icon"></i>
+              <span class="reference-text">
+                <a href="https://www.youtube.com/playlist?list=PLWz5rJ2EKKc_L3n1j4ajHjJ6QccFUvW1u"
+                  class="reference-link" target="_blank">Android Developers: Jetpack Compose</a>
+              </span>
+            </li>
+            <li class="reference-item">
+              <i class="fab fa-youtube reference-icon"></i>
+              <span class="reference-text">
+                <a href="https://www.youtube.com/c/PhilippLackner" class="reference-link" target="_blank">Philipp
+                  Lackner: Tutoriais de Compose</a>
+              </span>
+            </li>
+            <li class="reference-item">
+              <i class="fab fa-youtube reference-icon"></i>
+              <span class="reference-text">
+                <a href="https://www.youtube.com/watch?v=6_wK_Ud8--0" class="reference-link" target="_blank">Jetpack
+                  Compose Crash Course</a>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reference-section">
+          <h2 class="section-title">
+            <i class="fab fa-github resource-icon"></i>
+            <span>Repositórios e Exemplos</span>
+          </h2>
+          <ul class="reference-list">
+            <li class="reference-item">
+              <i class="fab fa-github reference-icon"></i>
+              <span class="reference-text">
+                <a href="https://github.com/android/compose-samples" class="reference-link" target="_blank">Compose
+                  Samples Oficiais</a>
+              </span>
+            </li>
+            <li class="reference-item">
+              <i class="fab fa-github reference-icon"></i>
+              <span class="reference-text">
+                <a href="https://github.com/androiddevnotes/awesome-jetpack-compose-learning-resources"
+                  class="reference-link" target="_blank">Awesome Jetpack Compose Resources</a>
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-    <a href="slide_11.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
-    <a href="slide_13.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
-  </body>
-</html>
+  </div>
+  <a href="slide_11.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
+  <a href="slide_13.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
+</body>
 
+</html>

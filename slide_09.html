@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -106,85 +107,88 @@
         }
     </style>
 </head>
+
 <body>
-<div class="slide-container flex flex-col p-10">
-    <div class="flex items-center mb-6">
-        <h1 class="title flex-grow"><span class="android-green">🏗️</span> <span class="kotlin-purple">Scaffold</span>:
-            Estrutura de Layout</h1>
-    </div>
+    <div class="slide-container flex flex-col p-10">
+        <div class="flex items-center mb-6">
+            <h1 class="title flex-grow"><span class="android-green">🏗️</span> <span
+                    class="kotlin-purple">Scaffold</span>:
+                Estrutura de Layout</h1>
+        </div>
 
-    <div class="flex flex-row space-x-8">
-        <div class="w-1/2">
-            <p class="text-xl mb-4">O <strong>Scaffold</strong> é um componente fundamental que implementa a estrutura
-                básica de layout do Material Design:</p>
+        <div class="flex flex-row space-x-8">
+            <div class="w-1/2">
+                <p class="text-xl mb-4">O <strong>Scaffold</strong> é um componente fundamental que implementa a
+                    estrutura
+                    básica de layout do Material Design:</p>
 
-            <div class="component-item">
-                <i class="fas fa-bars component-icon"></i>
-                <p class="text-lg"><strong>topBar</strong>: AppBar superior</p>
-            </div>
+                <div class="component-item">
+                    <i class="fas fa-bars component-icon"></i>
+                    <p class="text-lg"><strong>topBar</strong>: AppBar superior</p>
+                </div>
 
-            <div class="component-item">
-                <i class="fas fa-grip-lines component-icon"></i>
-                <p class="text-lg"><strong>bottomBar</strong>: Barra inferior (navegação)</p>
-            </div>
+                <div class="component-item">
+                    <i class="fas fa-grip-lines component-icon"></i>
+                    <p class="text-lg"><strong>bottomBar</strong>: Barra inferior (navegação)</p>
+                </div>
 
-            <div class="component-item">
-                <i class="fas fa-ellipsis-v component-icon"></i>
-                <p class="text-lg"><strong>drawerContent</strong>: Menu lateral</p>
-            </div>
+                <div class="component-item">
+                    <i class="fas fa-ellipsis-v component-icon"></i>
+                    <p class="text-lg"><strong>drawerContent</strong>: Menu lateral</p>
+                </div>
 
-            <div class="component-item">
-                <i class="fas fa-plus-circle component-icon"></i>
-                <p class="text-lg"><strong>floatingActionButton</strong>: Botão flutuante</p>
-            </div>
+                <div class="component-item">
+                    <i class="fas fa-plus-circle component-icon"></i>
+                    <p class="text-lg"><strong>floatingActionButton</strong>: Botão flutuante</p>
+                </div>
 
-            <div class="component-item">
-                <i class="fas fa-layer-group component-icon"></i>
-                <p class="text-lg"><strong>content</strong>: Conteúdo principal</p>
-            </div>
+                <div class="component-item">
+                    <i class="fas fa-layer-group component-icon"></i>
+                    <p class="text-lg"><strong>content</strong>: Conteúdo principal</p>
+                </div>
 
-            <div class="mt-4">
-                <div class="code-container">
-                    <div class="code-header">
-                        <span>Exemplo básico de Scaffold</span>
-                    </div>
-                    <div class="code-content">
-                        Scaffold(
-                        topBar = {
-                        TopAppBar(title = { Text("Meu App") })
-                        },
-                        bottomBar = {
-                        BottomNavigation { /* itens */ }
-                        },
-                        floatingActionButton = {
-                        FloatingActionButton(
-                        onClick = { /* ação */ }
-                        ) {
-                        Icon(Icons.Default.Add, "Adicionar")
-                        }
-                        }
-                        ) {
-                        // Conteúdo principal
-                        Text("Olá Scaffold!")
-                        }
+                <div class="mt-4">
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Exemplo básico de Scaffold</span>
+                        </div>
+                        <div class="code-content">
+                            Scaffold(
+                            topBar = {
+                            TopAppBar(title = { Text("Meu App") })
+                            },
+                            bottomBar = {
+                            BottomNavigation { /* itens */ }
+                            },
+                            floatingActionButton = {
+                            FloatingActionButton(
+                            onClick = { /* ação */ }
+                            ) {
+                            Icon(Icons.Default.Add, "Adicionar")
+                            }
+                            }
+                            ) {
+                            // Conteúdo principal
+                            Text("Olá Scaffold!")
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="w-1/2 flex flex-col items-center justify-center space-y-4">
-            <div class="image-container">
-                <img src="./images/scaffold_example.png" alt="Exemplo de Scaffold" class="slide-image">
-            </div>
+            <div class="w-1/2 flex flex-col items-center justify-center space-y-4">
+                <div class="image-container">
+                    <img src="./images/scaffold_example.png" alt="Exemplo de Scaffold" class="slide-image">
+                </div>
 
-            <div class="image-container">
-                <img src="./images/scaffold_structure_new.png" alt="Estrutura do Scaffold" class="slide-image">
+                <div class="image-container">
+                    <img src="./images/scaffold_structure_new.png" alt="Estrutura do Scaffold" class="slide-image">
+                </div>
             </div>
         </div>
     </div>
-</div>
-<a href="slide_08.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
-<a href="slide_10.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
+    <a href="slide_08.html" class="nav-button prev-button"><i class="fas fa-arrow-left mr-2"></i> Anterior</a>
+    <a href="slide_10.html" class="nav-button next-button">Próximo <i class="fas fa-arrow-right ml-2"></i></a>
 </body>
-</html>
 
+</html>
